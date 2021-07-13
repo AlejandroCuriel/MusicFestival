@@ -1,4 +1,4 @@
-const { src, dest, watch} = require('gulp');
+const { src, dest, watch, series, parallel} = require('gulp');
 const sass = require('gulp-sass');
 
 sass.compiler = require('dart-sass');
@@ -16,6 +16,7 @@ function minificarCss(){
     }))
     .pipe(dest("./build/css"))
 }
+
 function expandirCss(){
     return src("./src/scss/app.scss")
     .pipe(sass({
